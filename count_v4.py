@@ -9,8 +9,7 @@ import sys
 import argparse
 import re
 
-#KEY_REGION_START = 15 #start index of key region
-#KEY_REGION_END = 45 #end index of key region
+
 KEY_1 = "AATTTCTACTAAGTGTAGAT" #identifies sequence before guide to determine guide position
 KEY_2 = "TTTTTTT"
 
@@ -33,12 +32,6 @@ def count_spacers(input_file, fastq_file, output_file, guide_g):
 	non_perfect_matches = 0 #number of guides without a perfect match to the library
 	key_not_found = 0 #count of reads where key was not found
 
-	# add 'G' to key sequence if included in library
-	#if guide_g:
-	#	global KEY
-	#	KEY += "G"
-
-	# open library sequences and initiate dictionary of read counts for each guide
 	try:
 		with open(input_file, mode='rU') as infile: #rU mode is necessary for excel!
 			reader = csv.reader(infile)
